@@ -28,4 +28,6 @@ public class Role implements GrantedAuthority {
     @NotBlank(message = "Role code is invalid.")
     @Size(max = 10, message = "Maximum character limit (10) for the role code is exceeded.")
     private String code;
+
+
 }
