@@ -1,4 +1,4 @@
-package com.workintech.ecommerce.entity;
+package com.workintech.ecommerce.entity.product;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

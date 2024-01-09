@@ -1,4 +1,4 @@
-package com.workintech.ecommerce.entity;
+package com.workintech.ecommerce.entity.product;
 
 import com.workintech.ecommerce.util.Gender;
 import jakarta.persistence.*;
