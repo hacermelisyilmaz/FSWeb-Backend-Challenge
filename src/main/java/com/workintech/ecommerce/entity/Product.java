@@ -50,11 +50,11 @@ public class Product {
     @PositiveOrZero(message = "Product stocks cannot be negative.")
     private Integer stock;
 
-    @Column(name = "category_id")
-    @NotEmpty(message = "Invalid category ID in the product.")
-    private Integer categoryId;
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-    @Column(name = "store_id")
-    @NotEmpty(message = "Invalid store ID in the product.")
-    private Integer storeId;
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "category_id")
+    private Store store;
 }
