@@ -56,4 +56,8 @@ public class Address {
     @Column(name = "address")
     @NotBlank(message = "Address details cannot be empty.")
     private String address;
+
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "user_id")
+    private User user;
 }
