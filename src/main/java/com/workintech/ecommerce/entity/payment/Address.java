@@ -1,5 +1,6 @@
-package com.workintech.ecommerce.entity.user;
+package com.workintech.ecommerce.entity.payment;
 
+import com.workintech.ecommerce.entity.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
