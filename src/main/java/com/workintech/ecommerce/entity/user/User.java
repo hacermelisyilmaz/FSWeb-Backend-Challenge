@@ -1,6 +1,7 @@
 package com.workintech.ecommerce.entity.user;
 
-import com.workintech.ecommerce.entity.product.Store;
+import com.workintech.ecommerce.entity.payment.Address;
+import com.workintech.ecommerce.entity.payment.Card;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -39,6 +40,9 @@ public class User implements CustomUserDetails {
 
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "user")
     private List<Address> addresses = new ArrayList<>();
+
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "user")
+    private List<Card> cards = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "role_id")
