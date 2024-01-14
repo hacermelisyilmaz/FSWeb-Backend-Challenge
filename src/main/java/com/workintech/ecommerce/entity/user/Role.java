@@ -24,15 +24,15 @@ public class Role implements GrantedAuthority {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "authority")
-    @NotBlank(message = "Role name is invalid.")
-    @Size(max = 10, message = "Maximum character limit (10) for the role name is exceeded.")
-    private String authority;
-
     @Column(name = "code")
     @NotBlank(message = "Role code is invalid.")
     @Size(max = 10, message = "Maximum character limit (10) for the role code is exceeded.")
-    private String code;
+    private String authority;
+
+    @Column(name = "name")
+    @NotBlank(message = "Role name is invalid.")
+    @Size(max = 10, message = "Maximum character limit (10) for the role name is exceeded.")
+    private String name;
 
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "authority")
     private List<User> users = new ArrayList<>();
