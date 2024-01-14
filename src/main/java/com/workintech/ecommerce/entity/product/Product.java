@@ -55,6 +55,6 @@ public class Product {
     private Category category;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "store_id")
     private Store store;
 }
