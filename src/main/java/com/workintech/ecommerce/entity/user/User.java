@@ -9,6 +9,8 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
 
@@ -17,7 +19,7 @@ import java.util.*;
 @Data
 @Entity
 @Table(name = "user", schema = "public")
-public class User implements CustomUserDetails {
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -44,9 +46,16 @@ public class User implements CustomUserDetails {
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "user")
     private List<Card> cards = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "role_id")
-    private Role authority;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", schema = "public",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> authorities = new HashSet<>();
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
 
     @Override
     public String getUsername() {
