@@ -33,7 +33,4 @@ public class Role implements GrantedAuthority {
     @NotBlank(message = "Role name is invalid.")
     @Size(max = 10, message = "Maximum character limit (10) for the role name is exceeded.")
     private String name;
-
-    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "authority")
-    private List<User> users = new ArrayList<>();
 }
