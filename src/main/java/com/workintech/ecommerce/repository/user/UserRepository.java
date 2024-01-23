@@ -1,5 +1,6 @@
 package com.workintech.ecommerce.repository.user;
 
+import com.workintech.ecommerce.dto.user.UserResponse;
 import com.workintech.ecommerce.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
