@@ -3,10 +3,12 @@ package com.workintech.ecommerce.entity.product;
 import com.workintech.ecommerce.util.Gender;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
 
 import java.util.ArrayList;
@@ -36,6 +38,11 @@ public class Category {
     @Enumerated(EnumType.STRING)
     @NotBlank(message = "Invalid category gender.")
     private Gender gender;
+
+    @Column(name = "rating")
+    @NotEmpty(message = "Category rating cannot be empty.")
+    @Range(max = 5, min = 0, message = "Invalid category rating.")
+    private Double rating;
 
     @Column(name = "img")
     @NotBlank(message = "Invalid category image.")
