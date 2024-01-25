@@ -1,9 +1,9 @@
 package com.workintech.ecommerce.service.payment;
 
-import com.workintech.ecommerce.dto.user.AddressRequest;
-import com.workintech.ecommerce.dto.user.AddressResponse;
+import com.workintech.ecommerce.dto.payment.AddressRequest;
+import com.workintech.ecommerce.entity.payment.Address;
 
 public interface AddressService {
-    AddressResponse getAddress();
-    AddressResponse addAddress(AddressRequest newAddress);
+    Address getAddress();
+    Address addAddress(AddressRequest newAddress);
 }
